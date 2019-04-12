@@ -21,9 +21,11 @@ namespace AgendaContacto.Controllers
         {
             return View(db.Contactos.ToList());
         }
-        public ActionResult Mensaje()
+        
+        public ActionResult MensajeEmail()
         {
-            return View();
+            ViewBag.mensaje = "Mensaje Enviado Exitosamente";
+            return View("Index", db.Contactos.ToList());
         }
         [HttpPost]
         public ActionResult Index(string searching)

@@ -15,7 +15,6 @@ namespace AgendaContacto.Datos
 
     public partial class Contacto
     {
-       
         public int UserId { get; set; }
         [DisplayName("Primer Nombre:")]
         public string FirstName { get; set; }
@@ -23,7 +22,7 @@ namespace AgendaContacto.Datos
         public string LastName { get; set; }
         [DisplayName("Correo Electrónico:")]
         public string Email { get; set; }
-        [DisplayName("Télefono:")]
+        [DisplayName("Teléfono:")]
         public string Mobile { get; set; }
     }
 }

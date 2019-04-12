@@ -3,8 +3,12 @@
 @{
     ViewBag.Title = "Listado de Contacto";
 }
-<br /><br />
 
+@if (ViewBag.mensaje != null)
+{<div class="alert alert-primary">
+     <strong align="center">@ViewBag.mensaje</strong>
+    </div>    }
+<br />
 <div class="container animated 	pulse">
     <div class="row">
         <div class="col-md-1"></div>
@@ -17,20 +21,25 @@
                     </p>
                 </div>
                 <div class="card-body">
-                    <br />
+              
                     <div align="center">
-                        @using (Html.BeginForm("Index", "Contactoes", FormMethod.Post))
-                        {
-                            <div class="input-group">
+                        <div class="row">
+                            <div class="col-md-3"> </div>
+                            <div class="col-md-7">
+                                @using (Html.BeginForm("Index", "Contactoes", FormMethod.Post))
+                                {
+                                    <div class="input-group">
 
-                                <input class="form-control" type="text" name="searching" placeholder="Buscar por nombre..." aria-label="Buscar por nombre...">
+                                        <input class="form-control" type="text" name="searching" placeholder="Buscar por nombre..." aria-label="Buscar por nombre...">
 
-                                <div class="input-group-append">
-                                    <button class="btn btn-success" type="submit">Buscar</button>
-                                </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success" type="submit">Buscar</button>
+                                        </div>
+                                    </div>
+
+                                }
                             </div>
-                           
-                        }
+                        </div>
                         <br />
 
                         <table class="table">
@@ -67,9 +76,7 @@
                                     </td>
                                     <td>
                                         <div>
-
                                             <a class="text-white">@Html.ActionLink("Editar", "Edit", new { id = item.UserId }, new { @class = "btn btn-success" })</a>
-                                            
                                             <a class="text-white">@Html.ActionLink("Eliminar", "Delete", new { id = item.UserId }, new { @class = "btn btn-danger" })</a>
                                             <a class="text-white">@Html.ActionLink("Enviar Mensaje", "Details", new { id = item.UserId }, new { @class = "btn btn-primary" })</a>
                                         </div>
@@ -81,6 +88,7 @@
                         </table>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>

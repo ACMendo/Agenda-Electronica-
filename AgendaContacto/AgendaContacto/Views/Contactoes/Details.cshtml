@@ -1,7 +1,7 @@
 ﻿@model AgendaContacto.Datos.Contacto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Enviar Mensaje";
 }
 <br />
 <br />
@@ -26,9 +26,7 @@
                         <textarea class="form-control"> </textarea>
                     </div>
                     <br />
-                    
-                    <a class="text-white">@Html.ActionLink("Enviar Mensaje", "Index", new { id = Model.UserId }, new { @class = "btn btn-primary btn-block" })</a>
-                   
+                    <a class="text-white">@Html.ActionLink("Enviar Mensaje", "MensajeEmail", new { id = Model.UserId }, new { @class = "btn btn-primary btn-block" })</a>
                 </div>
             </div>
         </div>
