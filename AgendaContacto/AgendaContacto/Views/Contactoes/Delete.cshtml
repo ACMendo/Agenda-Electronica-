@@ -1,0 +1,50 @@
+﻿@model AgendaContacto.Datos.Contacto
+
+
+@{
+    ViewBag.Title = "Eliminar Contacto";
+}
+<br />
+<br />
+<div class="container animated pulse">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 ">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4>Eliminar Contacto</h4>
+                    @Html.ActionLink("Ir a la lista de contacto", "Index")
+                </div>
+                <div class="card-body">
+
+                    <div>
+                        <b>@Html.DisplayNameFor(model => model.FirstName)</b>
+                        @Html.DisplayFor(model => model.FirstName)
+                    </div>
+                    <div>
+                        <b>@Html.DisplayNameFor(model => model.LastName)</b>
+                        @Html.DisplayFor(model => model.LastName)
+                    </div>
+                    <div>
+                        <b>@Html.DisplayNameFor(model => model.Email)</b>
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
+                    <div>
+                        <b>@Html.DisplayNameFor(model => model.Mobile)</b>
+                        @Html.DisplayFor(model => model.Mobile)
+                    </div>
+                    <br />
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger btn-block" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

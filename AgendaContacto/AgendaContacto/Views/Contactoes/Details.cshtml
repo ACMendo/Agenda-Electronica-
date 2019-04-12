@@ -1,0 +1,36 @@
+﻿@model AgendaContacto.Datos.Contacto
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<div class="container animated pulse">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 ">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4>Enviar Mensaje</h4>
+                    @Html.ActionLink("Ir a la lista de contacto", "Index")
+                </div>
+                <div class="card-body">
+                    <div>
+                        <label><b>Email a enviar:</b></label>
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
+
+                    <div class="form-group">
+                        <label><b>Mensaje: </b></label>
+                        <br />
+                        <textarea class="form-control"> </textarea>
+                    </div>
+                    <br />
+                    
+                    <a class="text-white">@Html.ActionLink("Enviar Mensaje", "Index", new { id = Model.UserId }, new { @class = "btn btn-primary btn-block" })</a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

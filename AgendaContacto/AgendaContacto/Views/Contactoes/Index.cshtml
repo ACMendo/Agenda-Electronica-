@@ -1,0 +1,86 @@
+﻿@model IEnumerable<AgendaContacto.Datos.Contacto>
+
+@{
+    ViewBag.Title = "Listado de Contacto";
+}
+<br /><br />
+
+<div class="container animated 	pulse">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-12 ">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4>Listado de Contacto</h4>
+                    <p>
+                        @Html.ActionLink("Agregar Nuevo Contacto", "Create")
+                    </p>
+                </div>
+                <div class="card-body">
+                    <br />
+                    <div align="center">
+                        @using (Html.BeginForm("Index", "Contactoes", FormMethod.Post))
+                        {
+                            <div class="input-group">
+
+                                <input class="form-control" type="text" name="searching" placeholder="Buscar por nombre..." aria-label="Buscar por nombre...">
+
+                                <div class="input-group-append">
+                                    <button class="btn btn-success" type="submit">Buscar</button>
+                                </div>
+                            </div>
+                           
+                        }
+                        <br />
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FirstName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.LastName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Mobile)
+                                </th>
+                                <th>Opciones Adicionales:</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FirstName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.LastName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Mobile)
+                                    </td>
+                                    <td>
+                                        <div>
+
+                                            <a class="text-white">@Html.ActionLink("Editar", "Edit", new { id = item.UserId }, new { @class = "btn btn-success" })</a>
+                                            
+                                            <a class="text-white">@Html.ActionLink("Eliminar", "Delete", new { id = item.UserId }, new { @class = "btn btn-danger" })</a>
+                                            <a class="text-white">@Html.ActionLink("Enviar Mensaje", "Details", new { id = item.UserId }, new { @class = "btn btn-primary" })</a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

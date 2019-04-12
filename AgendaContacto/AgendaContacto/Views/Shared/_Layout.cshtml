@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Agenda Electronica - @ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <style>
+        html {
+            min-height: 100%;
+            position: relative;
+        }
+
+        body {
+            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+
+</head>
+<body style="background: #000428;
+background: -webkit-linear-gradient(to right, #004e92, #000428);
+background: linear-gradient(to right, #004e92, #000428);
+">
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <a>
+                <img style="width:40px; margin-right: 10px" src="https://image.flaticon.com/icons/svg/1542/1542149.svg" />
+                <b>
+                    @Html.ActionLink("Agenda Electrónica", "Bienvenida", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </b>
+            </a>
+            <div class="container">
+                <ul class="nav justify-content-end ">
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-white" href="Home/Bienvenida" id="navbardrop" data-toggle="dropdown">
+                            <img style="width:25px; margin-right: 5px;" src="http://www.adincord.com/images/registropng.png" />
+                            <b>Contactos</b>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a><b>@Html.ActionLink("Registrar Contacto", "Create", "Contactoes", new { area = "" }, new { @class = "dropdown-item" })</b></a>
+                            <a><b>@Html.ActionLink("Lista de Contacto", "Index", "Contactoes", new { area = "" }, new { @class = "dropdown-item" })</b></a>
+                           
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        @Html.Partial("_LoginPartial")
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+
+    </nav>
+  
+    <div class="container">
+        @RenderBody()
+    </div>
+    <br /><br />
+    <footer>
+        <div class="container-fluid">
+
+                    <h6>Ambar Mendoza</h6>
+                    <h6>2017-4451</h6>
+                </div>
+
+
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
